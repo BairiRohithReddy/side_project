@@ -28,6 +28,7 @@ class TaskTracker:
         if message is None:
             return self.default_greeting
         cowsay.cow(message)
+        
     
     def menu(self):
         while True:
@@ -134,18 +135,16 @@ class TaskTracker:
                       Enter date in YYYY-MM-dd format''')
 
     def get_task_status(self):
+        statuses = {1: 'Not Started', 2: 'In Progress', 3: 'Comlpleted'}
         while True:
-            user_status = int(input('''Enter the status of the task
-                                    1. Not Started
-                                    2. In Progress
-                                    3. Completed \n'''))
             try:
-                if user_status == 1:
-                    return 'Not Started'
-                elif user_status == 2:
-                    return ' In Progress'
-                elif user_status == 3:
-                    return 'Completed'
+                user_choice = int(input('''Enter the status of the task,
+                                        1. Not Started
+                                        2. In Progress
+                                        3. Completed
+                                        '''))
+                if user_choice in statuses:
+                    return statuses[user_choice]
                 else:
                     print("Invalid Input! Try again with a valid input")
             except ValueError:
@@ -167,7 +166,7 @@ class TaskTracker:
         pass
     
     def display_tasks(self):
-        self.greet("View all the tasks")
+        # self.greet("View all the tasks")
         df = pd.read_csv('tasks.csv')
         # print(df.to_string()) # this will return in tabular format without any boundaries for cells
         print(tabulate(df, headers = 'keys' , tablefmt='grid'))
