@@ -31,20 +31,30 @@
 
 4. **User Interface**
    - Display a menu with options:
-     1. Add a new task
+     1. Add a new task     <!--implemented -->
      2. Edit an existing task
+      - Display all the tasks
+      - let the user pick the task to be edited 
+      - modify the task and update the tasks.csv
      3. Delete a task
+      - first display all the tasks
+      - let the user choose the task id to be deleted
+      - remove the task from the tasks.csv
      4. Mark a task as complete
-     5. View all tasks
+      - first display all the tasks and then let the user specify the task id.
+      - then modify the task status accordingly
+     5. View all tasks    <!-- Implemented -->
      6. Filter tasks
+      - tasks can be filtered based on their priority
      7. Sort tasks
-     8. Exit
+      - tasks can be sorted based on the days left
+     8. Exit <!-- implemented -->
 
-5. **Data Persistence**
+5. **Data Persistence** <!-- implemented -->
    - Save tasks to a file (e.g., JSON or CSV)
    - Load tasks from file when the program starts
 
-6. **Input Validation**
+6. **Input Validation** <!-- implemented but needs to check again  -->
    - Validate user inputs for dates, priorities, and other fields
 
 7. **Error Handling**
