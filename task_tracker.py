@@ -6,18 +6,27 @@ import os
 import nanoid  
 import pandas as pd
 from tabulate import tabulate
+import configparser
 
 class TaskTracker:
     
-    def __init__(self, author = 'Rohith Reddy Bairi', version = 'V1.0'):
-        self.__author = author
-        self.__version = version
+    def __init__(self):
+        
+        self.config = configparser.ConfigParser()
+        self.config.read('config.ini')
+        # print(self.config.sections())
+        self._author = self.config['App']['author']
+        self._version = self.config['App']['version']
+        self.default_greeting = self.config['UI']['greeting_message']
+        self.task_file = self.config['Files']['tasks_file']
     
     def __str__(self):
-        print("")
-        return (f"-----------Task Tracker {self.__version} presented by {self.__author}-----------")
+        self.greet()
+        return (f"-----------Task Tracker {self._version} presented by {self._author}-----------")
         
-    def greet(self, message):
+    def greet(self, message = None):
+        if message is None:
+            return self.default_greeting
         cowsay.cow(message)
     
     def menu(self):
@@ -174,5 +183,6 @@ class TaskTracker:
     
 if __name__ == "__main__":
     task = TaskTracker()
+    print(task.greet())
     print(task)
     task.menu()
