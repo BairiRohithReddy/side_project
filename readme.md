@@ -127,6 +127,6 @@ Key features:
 6. Implement unit tests for core functionalities
 7. Consider migrating to a database for improved data management
 
-## Conclusion
+## tl-dr
 
 The Task Tracker project provides a robust foundation for task management with features like priority assignment, data persistence, and a user-friendly interface. Its modular design allows for easy expansion and enhancement, making it a versatile tool for personal or small team task tracking.
